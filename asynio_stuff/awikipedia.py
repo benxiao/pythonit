@@ -69,6 +69,7 @@ async def worker(id):
         except Exception as err:
             print("get_page", err, file=stderr)
             continue
+
         if not page:
             continue
 
