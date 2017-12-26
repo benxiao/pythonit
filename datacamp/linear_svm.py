@@ -6,9 +6,6 @@ data_source = load_iris()
 X_train, X_test, Y_train, Y_test = train_test_split(data_source.data, data_source.target, test_size=50)
 
 
-
-
-
 # ToDo add regularization
 MARGIN = 1
 M, FEATURES = X_train.shape
