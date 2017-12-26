@@ -116,9 +116,6 @@ def download_data():
     return products
 
 
-
-
-
 if __name__ == '__main__':
 
     import time
