@@ -50,10 +50,12 @@ class Node:
         return _node
 
     def delete(self):
+        _deleted = self.parent
         if self.left and self.right:
             sub = self.right.min()
-            self.key = sub.k
+            self.key = sub.key
             sub.delete()
+            _deleted = sub.parent
 
         elif self.parent.left is self:
             self.parent.left = self.right or self.left
@@ -64,6 +66,7 @@ class Node:
             self.parent.right = self.right or self.left
             if self.parent.right:
                 self.parent.right.parent = self.parent
+        return _deleted
 
     def remove(self, k):
         found = self.find(k)
@@ -112,11 +115,13 @@ class BinarySearchTree:
         self.n = 0
 
     def insert(self, k):
+        _node = Node(k)
         if self.root is None:
-            self.root = Node(k)
+            self.root = _node
         else:
-            self.root.insert(k)
+            _node = self.root.insert(k)
         self.n += 1
+        return _node
 
     def __contains__(self, k):
         if self.root is None:
@@ -138,19 +143,23 @@ class BinarySearchTree:
             if self.root.right:
                 sub = self.root.right.min()
                 self.root.key = sub.key
-                sub.delete()
+                return sub.delete()
             else:
                 self.root = self.root.left
                 if self.root:
                     self.root.parent = None
+                return None
         else:
-            _node.delete()
+            return _node.delete()
 
 
 if __name__ == '__main__':
     tree = BinarySearchTree()
     for i in [9, 1, 3, 4, 6, 2]:
+
         tree.insert(i)
+        print(tree)
+        print()
 
     print(tree.root)
     for i in [9, 1, 3, 4, 6, 2]:
