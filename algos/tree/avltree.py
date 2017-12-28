@@ -77,8 +77,8 @@ class AVLTree(BinarySearchTree):
 if __name__ == '__main__':
     import random
 
-    lst = [18, 23, 1, 9, 28, 10]
-    # random.shuffle(lst)
+    lst = list(range(30))
+    random.shuffle(lst)
     avl = AVLTree()
     for i in lst:
         avl.insert(i)

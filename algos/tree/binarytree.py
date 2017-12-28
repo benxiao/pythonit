@@ -5,6 +5,22 @@ class Node:
         self.right = right
         self.parent = parent
 
+    # for red black tree
+        self.red = True
+
+    # for red black tree
+    def grandparent(self):
+        _parent = self.parent
+        return _parent.parent if _parent else None
+
+    def uncle(self):
+        _parent = self.parent
+        _grandparent = _parent.parent
+        if _grandparent.left is _parent:
+            return _grandparent.right
+        else:
+            return _grandparent.left
+
     def find(self, k):
         if k == self.key:
             return self
@@ -76,7 +92,10 @@ class Node:
 
     def _str(self):
         """Internal method for ASCII art."""
-        label = str(self.key)
+        if hasattr(self, "red") and not getattr(self, "red"):
+            label = str((self.key, "B"))
+        else:
+            label = str(self.key)
         if self.left is None:
             left_lines, left_pos, left_width = [], 0, 0
         else:
