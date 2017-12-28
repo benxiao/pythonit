@@ -14,7 +14,7 @@ if it is only red, if the node exists and node.red is True
 
 
 def red(node):
-    return node and node.red
+    return bool(node) and node.red
 
 
 class RBTree(BinarySearchTree):
@@ -38,8 +38,7 @@ class RBTree(BinarySearchTree):
         y.red = False
         x.red = True
 
-        # rbtree specific
-
+    # rbtree specific
     def right_rotate(self, x):
         y = x.left
         y.parent = x.parent
@@ -57,7 +56,6 @@ class RBTree(BinarySearchTree):
         x.parent = y
         y.red = False
         x.red = True
-
 
     # rbtree specific
     def rebalance(self, node):
