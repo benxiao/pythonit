@@ -1,0 +1,5 @@
+chemist.egg-info/PKG-INFO
+chemist.egg-info/SOURCES.txt
+chemist.egg-info/dependency_links.txt
+chemist.egg-info/entry_points.txt
+chemist.egg-info/top_level.txt

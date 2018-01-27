@@ -7,14 +7,14 @@ import product_tbl
 import date_tbl
 from product_tbl import ProductTable
 from price_tbl import PriceTable
-from date_tbl import AddedDateTable
+from date_tbl import OperationDateTable
 
 
 def main():
-    conn = sqlite3.connect("chemist.sqlite")
+    conn = sqlite3.connect("/Users/ranxiao/python/pythonit/webscraping/chemist/chemist.sqlite")
     with PriceTable(conn) as t_price, \
          ProductTable(conn) as t_product, \
-         AddedDateTable(conn) as t_date:
+         OperationDateTable(conn) as t_date:
 
         t_date.insert({date_tbl.COLUMN_TIMESTAMP: int(time.time()), date_tbl.COLUMN_TIMESTAMPSTRING: str(
              datetime.now())})
@@ -28,7 +28,6 @@ def main():
             if not name2id.get(p.name):
                 name2id[p.name] = len(name2id)
                 t_product.insert({product_tbl.COLUMN_NAME: p.name})
-
 
             if not t_price.productHasSamePriceWithLastEntry(name2id[p.name], p.price):
                 t_price.insert({price_tbl.COLUMN_ID: name2id[p.name],

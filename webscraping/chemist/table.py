@@ -17,7 +17,6 @@ class Table:
         self.name = name
         self.columns = self._columns()
 
-
     def _columns(self):
         cur = self.conn.cursor()
         cur.execute(f"SELECT * FROM {self.name};")

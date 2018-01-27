@@ -118,11 +118,7 @@ def download_data():
 
 if __name__ == '__main__':
 
-    import time
-    from product_tbl import *
-    # start = time.time()
-
-    # lst = searc
+    pass
 
 
 
