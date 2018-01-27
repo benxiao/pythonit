@@ -15,6 +15,7 @@ class ProductTable(Table):
     def __init__(self, conn):
         super(ProductTable, self).__init__(conn, TABLE_PRODUCT)
 
+
+
 if __name__ == '__main__':
-    tbl = ProductTable()
-    print(len(tbl))
+    pass

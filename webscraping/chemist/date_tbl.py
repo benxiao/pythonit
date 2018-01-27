@@ -14,11 +14,6 @@ class AddedDateTable(Table):
         super(AddedDateTable, self).__init__(conn, TABLE_ADDEDDATE)
 
 
-    def last_date(self):
-        last = self[len(self)]
-        if last:
-            return datetime.fromtimestamp(last[COLUMN_TIMESTAMP])
-        return None
 
     def largest_id(self):
         cur = self.conn.cursor()
@@ -27,8 +22,6 @@ class AddedDateTable(Table):
         ret = cur.fetchone()
         cur.close()
         return ret[0] if ret else 0
-
-
 
 
 if __name__ == '__main__':

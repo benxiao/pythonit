@@ -113,7 +113,7 @@ def download_data():
 
     for s in results:
         products = products.union(s)
-    return products
+    return list(products)
 
 
 if __name__ == '__main__':
