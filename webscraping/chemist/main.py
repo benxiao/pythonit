@@ -11,7 +11,7 @@ from date_tbl import OperationDateTable
 
 
 def main():
-    conn = sqlite3.connect("/Users/ranxiao/python/pythonit/webscraping/chemist/chemist.sqlite")
+    conn = sqlite3.connect("/home/ranxiao/pythonit/webscraping/chemist/chemist.sqlite")
     with PriceTable(conn) as t_price, \
          ProductTable(conn) as t_product, \
          OperationDateTable(conn) as t_date:
